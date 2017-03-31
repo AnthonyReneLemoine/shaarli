@@ -14,6 +14,7 @@ is_public=$3
 app=shaarli
 repository="ka2er/shaarli" #
 autostart="Yes"
+volume="Yes"
 volume1=/home/shaarli
 volume2=/var/www/html/data
 command="-p 1000:80"
@@ -55,7 +56,7 @@ then
 	sudo mkdir -p $volume1
 	command+=" -v $volume1:$volume2"
 fi
-sudo yunohost app setting $app
+sudo yunohost app setting $app skipped_uris
 
 if [ "$autostart" = "Yes" ];
 then
