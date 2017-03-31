@@ -14,8 +14,8 @@ is_public=$3
 app=shaarli
 repository="ka2er/shaarli" #
 autostart="Yes"
-volume="Yes"
-command="-p 1000:8989"
+volume=""
+command="-p 1000:80"
 
 # COPY PASTE THE FOLLOWING for all the ports you forward to your host
 sudo yunohost app checkport 1000
