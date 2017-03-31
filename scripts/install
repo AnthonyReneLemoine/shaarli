@@ -14,7 +14,8 @@ is_public=$3
 app=shaarli
 repository="ka2er/shaarli" #
 autostart="Yes"
-volume=""
+volume1=/home/shaarli
+volume2=/var/www/html/data
 command="-p 1000:80"
 
 # COPY PASTE THE FOLLOWING for all the ports you forward to your host
@@ -51,10 +52,10 @@ sudo service docker restart
 # Create Docker container
 if [ "$volume" = "Yes" ];
 then
-	sudo mkdir -p /home/yunohost.docker/container-$app
-	command+=" -v /home/yunohost.docker/container-$app:/home/yunohost"
+	sudo mkdir -p $volume1
+	command+=" -v $volume1:$volume2"
 fi
-sudo yunohost app setting $app volume $volume
+sudo yunohost app setting $app
 
 if [ "$autostart" = "Yes" ];
 then

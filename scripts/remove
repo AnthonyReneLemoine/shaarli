@@ -13,11 +13,11 @@ domain=$(sudo yunohost app setting $app domain)
 sudo rm /etc/nginx/conf.d/$domain.d/$app.conf
 
 # Remove volume folder
-volume=$(sudo yunohost app setting $app volume)
-if [ "$volume" = "Yes" ];
-then
-	sudo rm -rf /home/yunohost.docker/container-$app
-fi
+# volume=$(sudo yunohost app setting $app volume)
+# if [ "$volume" = "Yes" ];
+# then
+# 	sudo rm -rf /home/yunohost.docker/container-$app
+# fi
 
 # Reload
 sudo service nginx reload
